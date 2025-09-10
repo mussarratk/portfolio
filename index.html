@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mussarrat Khatoon | Generative AI & Data Science Professional</title>
+    <meta name="description" content="Portfolio of Mussarrat Khatoon, a Generative AI & Data Science Professional with expertise in AI-driven solutions, MLOps, and business intelligence.">
+    <meta name="keywords" content="Generative AI, Data Science, MLOps, Power BI, Python, Mussarrat Khatoon, Portfolio">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* CSS Reset & Basic Setup */
+        :root {
+            --bg-color: #0a0a0a;
+            --bg-secondary-color: #1a1a1a;
+            --card-color: #111;
+            --border-color: #2a2a2a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --accent-gradient: linear-gradient(135deg, #4a00e0, #8e2de2);
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        html.light-mode {
+            --bg-color: #f5f5f7;
+            --bg-secondary-color: #ffffff;
+            --card-color: #ffffff;
+            --border-color: #e5e5e5;
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: var(--bg-color); }
+        body::-webkit-scrollbar-thumb { background-color: #4a00e0; border-radius: 10px; }
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--text-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-grow {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gradient);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        html.light-mode .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        
+        .theme-toggle:hover { color: var(--text-primary); }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Scroll Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s linear;
+        }
+
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text .title {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .hero-text .name {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px #4a00e0, 0 0 20px #8e2de2; }
+            to { text-shadow: 0 0 20px #4a00e0, 0 0 30px #8e2de2; }
+        }
+
+        .hero-text .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--text-primary);
+            transform: translateY(-5px);
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 50px rgba(74, 0, 224, 0.5);
+            animation: float-image 4s ease-in-out infinite;
+        }
+        
+        @keyframes float-image {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Marquee Section */
+        .marquee {
+            background-color: var(--bg-secondary-color);
+            padding: 2rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            animation: scroll 30s linear infinite;
+        }
+        
+        .marquee-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-right: 3rem;
+            flex-shrink: 0;
+        }
+        
+        .marquee img {
+            height: 40px;
+            margin: 0 40px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+
+        .marquee img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-badge {
+            background: var(--bg-secondary-color);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-image {
+            background: url('https://via.placeholder.com/600x800/1a1a1a/f0f0f0?text=workspace.jpg') no-repeat center center/cover;
+            border-radius: 10px;
+            min-height: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(74, 0, 224, 0.2);
+        }
+        
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-badge {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            background: var(--bg-secondary-color);
+            color: var(--text-secondary);
+        }
+        
+        .project-links {
+            margin-top: auto;
+        }
+        
+        .project-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-color);
+            border: 4px solid #4a00e0;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .right::after { left: -10px; }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            position: relative;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .timeline-content:hover { transform: scale(1.03); }
+        
+        .timeline-content h3 { font-size: 1.3rem; }
+        .timeline-content .company { font-weight: 600; margin-bottom: 0.5rem; }
+        .timeline-content .duration { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .timeline-content p { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Awards & Certifications Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .award-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Booking Section */
+        #booking { background-color: var(--bg-secondary-color); }
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .calendar-container {
+            background: var(--card-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .calendar-header button {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .calendar-header h3 { font-size: 1.4rem; }
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        .calendar-days span { padding: 0.5rem; color: var(--text-secondary); }
+        .calendar-dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        .calendar-dates div {
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .calendar-dates .prev-month, .calendar-dates .next-month { color: var(--text-secondary); }
+        .calendar-dates .available:hover { background-color: var(--bg-secondary-color); }
+        .calendar-dates .selected { background: var(--accent-gradient); color: #fff; }
+        .calendar-dates .unavailable { color: var(--text-secondary); cursor: not-allowed; text-decoration: line-through; }
+
+        .time-slots { margin-top: 2rem; }
+        .time-slots h4 { margin-bottom: 1rem; }
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.5rem;
+        }
+        .slot {
+            padding: 0.7rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .slot:hover { background-color: var(--bg-secondary-color); }
+        .slot.selected { background: var(--accent-gradient); color: #fff; border-color: #4a00e0; }
+
+        .booking-form { padding-top: 2rem; }
+        .form-group { position: relative; margin-bottom: 2rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: 1rem;
+        }
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+        .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label,
+        .form-group select:focus + label, .form-group select:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label, .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.75rem;
+            left: 0.75rem;
+            font-size: 0.8rem;
+            padding: 0 0.25rem;
+            background-color: var(--bg-secondary-color);
+        }
+        .pricing-display { margin: 1rem 0; font-size: 1.2rem; font-weight: 600; }
+        
+        .btn-submit {
+            padding: 1rem 2rem;
+            border: none;
+            background: var(--accent-gradient);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: opacity 0.3s;
+        }
+        .btn-submit:hover { opacity: 0.9; }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-secondary-color);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer .social-links { justify-content: center; margin-bottom: 1.5rem; }
+        .footer p { color: var(--text-secondary); }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-image { grid-row: 1; margin-bottom: 2rem; }
+            .hero-text .name { font-size: 3rem; }
+            .hero-text .tagline { margin: 0 auto 2rem; }
+            .social-links { justify-content: center; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-image { margin-top: 2rem; }
+            .booking-container { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            section { padding: 4rem 0; }
+            .container { padding: 0 1rem; }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--bg-secondary-color);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2.5rem;
+                transition: right 0.4s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            }
+            .nav-menu.active { right: 0; }
+            .hamburger { display: block; z-index: 1001; }
+            .experience-timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+            .timeline-item.left, .timeline-item.right { left: 0; }
+            .timeline-item::after { left: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor"></div>
+    <div id="progress-bar"></div>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="nav-logo">MK.</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#booking" class="nav-link">Book Session</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-toggle"><i class="bi bi-sun"></i></button></li>
+            </ul>
+            <div class="hamburger"><i class="bi bi-list"></i></div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div id="particles-js"></div>
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="title">Generative AI & Data Science Professional</p>
+                    <h1 class="name">Mussarrat Khatoon</h1>
+                    <p class="tagline">4+ years of experience in data analytics, AI-driven solutions, and business intelligence. Skilled in building Generative AI pipelines, MLOps workflows, and NLP applications.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="#" target="_blank" aria-label="Tableau"><i class="bi bi-bar-chart-line-fill"></i></a>
+                        <a href="mailto:mussarratkhatoon09@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/350/8e2de2/f0f0f0?text=portrait.jpg" alt="Mussarrat Khatoon Portrait">
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-label">Places I've contributed:</span>
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Netscribes" alt="Netscribes Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Tata+Group" alt="Tata Group Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Microsoft" alt="Microsoft Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Google+Cloud" alt="Google Cloud Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Azure" alt="Azure Logo">
+                <span class="marquee-label" style="margin-left:5rem;">Places I've contributed:</span>
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Netscribes" alt="Netscribes Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Tata+Group" alt="Tata Group Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Microsoft" alt="Microsoft Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Google+Cloud" alt="Google Cloud Logo">
+                <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Azure" alt="Azure Logo">
+            </div>
+        </div>
+
+        <section id="about">
+            <div class="container fade-in">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Generative AI & Data Science Professional with over 4 years of experience in data analytics, AI-driven solutions, and business intelligence. I am skilled in building Generative AI pipelines (RAG, embeddings, fine-tuning, LLMs), MLOps workflows, and NLP applications across GCP Vertex AI and Azure ML. My expertise includes Power BI dashboarding, semantic data models, SQL-based ETL, and advanced DAX. I thrive on stakeholder collaboration, agile delivery, and deploying production-ready AI and ML solutions that drive measurable business outcomes.</p>
+                        <h3>My Skillset</h3>
+                        <div class="skills-grid">
+                            <span class="skill-badge">Generative AI</span>
+                            <span class="skill-badge">RAG</span>
+                            <span class="skill-badge">LLMs (BERT, GPT, Gemini)</span>
+                            <span class="skill-badge">GCP Vertex AI</span>
+                            <span class="skill-badge">Azure ML</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">SQL</span>
+                            <span class="skill-badge">Power BI</span>
+                            <span class="skill-badge">MLOps</span>
+                            <span class="skill-badge">Databricks</span>
+                            <span class="skill-badge">TensorFlow</span>
+                            <span class="skill-badge">Scikit-Learn</span>
+                            <span class="skill-badge">Flask & FastAPI</span>
+                        </div>
+                    </div>
+                    <div class="about-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container fade-in">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card fade-in">
+                        <h3>RAG-based GenAI Knowledge Assistant</h3>
+                        <div class="tech-stack">
+                            <span class="tech-badge">GCP Vertex AI</span><span class="tech-badge">LangChain</span><span class="tech-badge">Vector Search</span>
+                        </div>
+                        <p>Built an enterprise Q&A assistant using a RAG pipeline with embeddings & vector search for document intelligence.</p>
+                        <div class="project-links"><a href="#" target="_blank">View Project <i class="bi bi-arrow-right-short"></i></a></div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <h3>Telecom Churn Prediction – MLOps</h3>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Azure ML</span><span class="tech-badge">ADF</span><span class="tech-badge">SDK v2</span>
+                        </div>
+                        <p>Developed a modular CI/CD-enabled MLOps workflow with auto-logging and monitoring for churn prediction.</p>
+                        <div class="project-links"><a href="#" target="_blank">View Project <i class="bi bi-arrow-right-short"></i></a></div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <h3>Global Sales & Profit Dashboard</h3>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Power BI</span><span class="tech-badge">Python</span><span class="tech-badge">SQL</span><span class="tech-badge">Fabric</span>
+                        </div>
+                        <p>Created an end-to-end BI dashboard with dynamic SQL reports, advanced DAX, and KPI cards.</p>
+                        <div class="project-links"><a href="#" target="_blank">View Project <i class="bi bi-arrow-right-short"></i></a></div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <h3>Real-Time IoT Streaming Dashboard</h3>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Azure Stream Analytics</span><span class="tech-badge">SQL</span><span class="tech-badge">Power BI</span>
+                        </div>
+                        <p>Integrated IoT Hub & Event Hub data into Power BI for real-time monitoring with live dashboards and automated alerts.</p>
+                        <div class="project-links"><a href="#" target="_blank">View Project <i class="bi bi-arrow-right-short"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <div class="container fade-in">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="experience-timeline">
+                    <div class="timeline-item left fade-in">
+                        <div class="timeline-content">
+                            <h3>Associate Data Analyst 📊</h3>
+                            <p class="company">Netscribes</p>
+                            <span class="duration">Sep 2019 – Present</span>
+                            <p>Designed and deployed interactive Power BI dashboards, developed semantic data models, and automated data pipelines, enhancing executive decision-making.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right fade-in">
+                        <div class="timeline-content">
+                            <h3>Intern 🏢</h3>
+                            <p class="company">Tata Group</p>
+                            <span class="duration">Aug 2025 (Expected)</span>
+                            <p>Conducted financial risk analysis using advanced analytics and GenAI. Developed a predictive modeling framework for customer delinquency risk and designed an AI-driven collections strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <div class="container fade-in">
+                <h2 class="section-title">Certifications</h2>
+                <div class="awards-grid">
+                    <div class="award-card fade-in">
+                        <div class="icon"><i class="bi bi-patch-check-fill"></i></div>
+                        <h4>Microsoft Fabric Analytics Engineer (DP-600)</h4>
+                    </div>
+                    <div class="award-card fade-in">
+                        <div class="icon"><i class="bi bi-patch-check-fill"></i></div>
+                        <h4>Microsoft Azure Data Scientist (DP-100)</h4>
+                    </div>
+                    <div class="award-card fade-in">
+                        <div class="icon"><i class="bi bi-patch-check-fill"></i></div>
+                        <h4>Google Cloud Generative AI Developer</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="booking">
+            <div class="container fade-in">
+                <h2 class="section-title">Book a Session</h2>
+                <div class="booking-container">
+                    <div class="calendar-booking">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button id="prev-month"><i class="bi bi-chevron-left"></i></button>
+                                <h3 id="month-year"></h3>
+                                <button id="next-month"><i class="bi bi-chevron-right"></i></button>
+                            </div>
+                            <div class="calendar-days">
+                                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                            </div>
+                            <div class="calendar-dates" id="calendar-dates"></div>
+                        </div>
+                        <div class="time-slots" id="time-slots-container" style="display:none;">
+                            <h4>Available Slots for <span id="selected-date-span"></span></h4>
+                            <div class="slots-grid" id="slots-grid">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="booking-form-container">
+                        <form id="booking-form" class="booking-form" style="display:none;">
+                            <h4>Confirm Your Booking</h4>
+                            <div class="form-group">
+                                <input type="text" id="full-name" placeholder=" " required>
+                                <label for="full-name">Full Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder=" " required>
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="form-group">
+                                <select id="session-duration" required>
+                                    <option value="" disabled selected>Select Session Duration</option>
+                                    <option value="30">30 minutes</option>
+                                    <option value="60">60 minutes</option>
+                                    <option value="90">90 minutes</option>
+                                </select>
+                            </div>
+                            <div class="pricing-display">
+                                Price: <span id="session-price">$0</span>
+                            </div>
+                            <button type="submit" class="btn-submit">Proceed to Payment</button>
+                        </form>
+                        <div id="booking-confirmation" style="display:none;">
+                            <h4>Thank you!</h4>
+                            <p>Your booking request has been received. You will be redirected to Stripe for payment. A confirmation email will be sent shortly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container fade-in">
+                <h2 class="section-title">Get In Touch</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="contact-name" placeholder=" " required>
+                        <label for="contact-name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contact-email" placeholder=" " required>
+                        <label for="contact-email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact-message" rows="5" placeholder=" " required></textarea>
+                        <label for="contact-message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" target="_blank" aria-label="Tableau"><i class="bi bi-bar-chart-line-fill"></i></a>
+                <a href="mailto:mussarratkhatoon09@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <p>&copy; 2025 Mussarrat Khatoon. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Particle.js Initialization ---
+        if (document.getElementById('particles-js')) {
+            particlesJS("particles-js", {
+                "particles": { "number": { "value": 60, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } },
+                "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } },
+                "retina_detect": true
+            });
+        }
+        
+        // --- Custom Cursor ---
+        const cursor = document.querySelector('.cursor');
+        window.addEventListener('mousemove', e => {
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + 'px';
+        });
+        document.querySelectorAll('a, button, input, textarea, .project-card, .timeline-content, .slot, .calendar-dates div').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-grow'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-grow'));
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- Scroll Progress Bar ---
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (window.scrollY / scrollTotal) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // --- Mobile Navigation ---
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => link.addEventListener('click', () => {
+             hamburger.classList.remove('active');
+             navMenu.classList.remove('active');
+        }));
+
+        // --- Light/Dark Mode Toggle ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'light') {
+            document.documentElement.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('light-mode');
+            let theme = 'dark';
+            if (document.documentElement.classList.contains('light-mode')) {
+                theme = 'light';
+                themeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+            }
+            localStorage.setItem('theme', theme);
+        });
+
+        // --- Intersection Observer for Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // --- Booking Calendar Logic ---
+        const monthYearEl = document.getElementById('month-year');
+        const datesEl = document.getElementById('calendar-dates');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+        const timeSlotsContainer = document.getElementById('time-slots-container');
+        const slotsGrid = document.getElementById('slots-grid');
+        const selectedDateSpan = document.getElementById('selected-date-span');
+        const bookingForm = document.getElementById('booking-form');
+        const sessionDurationSelect = document.getElementById('session-duration');
+        const sessionPriceSpan = document.getElementById('session-price');
+        const bookingConfirmation = document.getElementById('booking-confirmation');
+        
+        let currentDate = new Date();
+        let selectedDate = null;
+        let selectedSlot = null;
+
+        const prices = { '30': 50, '60': 100, '90': 150 };
+
+        // Dummy available days (e.g., weekdays)
+        const availableWeekdays = [1, 2, 3, 4, 5]; // Mon-Fri
+        
+        function renderCalendar() {
+            const date = new Date(currentDate);
+            date.setDate(1);
+            const firstDayIndex = date.getDay();
+            const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+            const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
+            const nextDays = 7 - lastDayIndex - 1;
+
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            monthYearEl.textContent = `${months[date.getMonth()]} ${date.getFullYear()}`;
+
+            let datesHTML = "";
+
+            for (let x = firstDayIndex; x > 0; x--) {
+                datesHTML += `<div class="prev-month">${prevLastDay - x + 1}</div>`;
+            }
+
+            for (let i = 1; i <= lastDay; i++) {
+                const dayDate = new Date(date.getFullYear(), date.getMonth(), i);
+                const isPast = dayDate < new Date().setHours(0,0,0,0);
+                const isAvailable = availableWeekdays.includes(dayDate.getDay()) && !isPast;
+                const isSelected = selectedDate && selectedDate.toDateString() === dayDate.toDateString();
+
+                datesHTML += `<div class="${isAvailable ? 'available' : 'unavailable'} ${isSelected ? 'selected' : ''}" data-date="${dayDate.toISOString()}">${i}</div>`;
+            }
+
+            for (let j = 1; j <= nextDays; j++) {
+                datesHTML += `<div class="next-month">${j}</div>`;
+            }
+
+            datesEl.innerHTML = datesHTML;
+            addDateClickListeners();
+        }
+
+        function addDateClickListeners() {
+            datesEl.querySelectorAll('.available').forEach(day => {
+                day.addEventListener('click', (e) => {
+                    selectedDate = new Date(e.target.dataset.date);
+                    renderCalendar(); // Re-render to show selection
+                    showTimeSlots();
+                });
+            });
+        }
+
+        function showTimeSlots() {
+            const availableSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"]; // Dummy slots
+            let slotsHTML = "";
+            availableSlots.forEach(slot => {
+                slotsHTML += `<div class="slot">${slot}</div>`;
+            });
+            slotsGrid.innerHTML = slotsHTML;
+            selectedDateSpan.textContent = selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+            timeSlotsContainer.style.display = 'block';
+            bookingForm.style.display = 'none'; // Hide form when a new date is picked
+            
+            slotsGrid.querySelectorAll('.slot').forEach(slotEl => {
+                slotEl.addEventListener('click', e => {
+                    // Remove selection from others
+                    slotsGrid.querySelectorAll('.slot').forEach(el => el.classList.remove('selected'));
+                    e.target.classList.add('selected');
+                    selectedSlot = e.target.textContent;
+                    bookingForm.style.display = 'block';
+                    bookingForm.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        }
+        
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        sessionDurationSelect.addEventListener('change', (e) => {
+            sessionPriceSpan.textContent = `$${prices[e.target.value] || 0}`;
+        });
+
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const bookingDetails = {
+                fullName: document.getElementById('full-name').value,
+                email: document.getElementById('email').value,
+                date: selectedDate.toISOString().split('T')[0],
+                time: selectedSlot,
+                duration: sessionDurationSelect.value,
+                price: prices[sessionDurationSelect.value]
+            };
+
+            // --- THIS IS WHERE BACKEND INTEGRATION HAPPENS ---
+            
+            // Step 1: Save booking to Supabase (with 'pending' status)
+            // const { data, error } = await supabase.from('appointments').insert([bookingDetails]).select();
+            // if(error) { alert('Could not create booking. Please try again.'); return; }
+            // const appointmentId = data[0].id;
+            
+            // Step 2: Create Stripe Checkout Session
+            // This would typically be a call to a serverless function.
+            // const response = await fetch('/.netlify/functions/create-checkout', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ price: bookingDetails.price, appointmentId: appointmentId })
+            // });
+            // const session = await response.json();
+            
+            // Step 3: Redirect to Stripe Checkout
+            // await stripe.redirectToCheckout({ sessionId: session.id });
+
+            // --- SIMULATION FOR FRONT-END ONLY ---
+            console.log('Booking Submitted:', bookingDetails);
+            bookingForm.style.display = 'none';
+            bookingConfirmation.style.display = 'block';
+            // --- END SIMULATION ---
+        });
+        
+        renderCalendar();
+    });
+    </script>
+</body>
+</html>
